@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it using these metadata."
+title: "A Convolutional Neural Network for Transit Detection around Active M Dwarfs Using TESS Observations"
+authors:
+  - family-names: Dommeti
+    given-names: Rishi
+    orcid: "https://orcid.org/0009-0004-8493-2311"
+    affiliation: "Lynbrook High School"
+version: "1.0.0"
+license: MIT
