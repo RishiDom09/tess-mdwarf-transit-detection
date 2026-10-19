@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61,<76"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mdwarf-transits"
+version = "0.1.0"
+description = "Reproduction of CNN transit detection around active M dwarfs in TESS observations"
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

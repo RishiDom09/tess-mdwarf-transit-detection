@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "training": {
+    "activity_probability": 0.5,
+    "batch_size": 1000,
+    "checkpoints": [
+      0,
+      1,
+      8,
+      69,
+      573,
+      1000,
+      2000,
+      3000,
+      4000,
+      4758,
+      5000,
+      6000,
+      7000,
+      8000,
+      9000,
+      9516,
+      10000,
+      11000,
+      12000,
+      13000,
+      14000,
+      14274,
+      15000,
+      16000,
+      17000,
+      18000,
+      19000,
+      19032
+    ],
+    "inference_batch_size": 32,
+    "inter_threads": 1,
+    "intra_threads": 4,
+    "learning_rate": 0.0001,
+    "positive_probability": 0.5,
+    "runtime": {
+      "numpy": "1.19.1",
+      "tensorflow": "2.3.1"
+    },
+    "seeds": [
+      [
+        2026100401,
+        2026100402,
+        2026100403
+      ],
+      [
+        2026100411,
+        2026100412,
+        2026100413
+      ],
+      [
+        2026100421,
+        2026100422,
+        2026100423
+      ]
+    ],
+    "selection_tie_order": [
+      "update",
+      "seed_index"
+    ],
+    "selection_tie_tolerance": 1e-12,
+    "support_seed": 2026100494,
+    "train_stars_per_activity": 100,
+    "training_support_transforms_per_star": 100,
+    "updates": 19032,
+    "validation_selection": "active_star_label_balanced_global_AUROC",
+    "validation_stars_per_activity": 20,
+    "window_shift": 100,
+    "inference_initialization_seed": 2026100491
+  },
+  "calibration": {
+    "alpha": 0.05,
+    "delta": 0.05,
+    "n": 60,
+    "rank": 60,
+    "decision": "score > threshold",
+    "coverage": "individual_per_detector_nominal_conditional_on_iid"
+  },
+  "bls": {
+    "duration_count": 35,
+    "duration_max_days": 0.16666666666666666,
+    "duration_min_days": 0.006944444444444444,
+    "dy": null,
+    "frequency_factor": 1.0,
+    "method": "fast",
+    "objective": "snr",
+    "oversample": 10,
+    "period_max_days": 6.0,
+    "period_min_days": 0.5,
+    "score": "SDE of SR = depth_snr / sqrt(N); mean/std(ddof=0), all grid points",
+    "spectrum": "uniform frequency; same pre-clipping time grid within each star"
+  },
+  "biweight": {
+    "break_tolerance": 0.25,
+    "cval": 5.0,
+    "edge_cutoff": 0.0,
+    "method": "biweight",
+    "return_trend": true,
+    "window_length": 0.5
+  },
+  "upper_clipping": {
+    "cenfunc": "median",
+    "grow": false,
+    "maxiters": 5,
+    "operation": "mask_after_detrending",
+    "sigma_lower": null,
+    "sigma_upper": 2.0,
+    "stdfunc": "mad_std"
+  },
+  "test_plan": {
+    "active_stars": 50,
+    "auroc": {
+      "definition": "global star-balanced AUROC; not mean within-star paired ranking",
+      "outputs": "each detector AUROC and CNN-minus-BLS AUROC difference with percentile intervals",
+      "role": "secondary",
+      "ties": "half credit; equivalent to trapezoidal ROC with tied scores grouped",
+      "uncertainty": "same 10000 whole-star bootstrap draws as primary recovery, paired across methods",
+      "weights": "within each label, each star weight 1/S; positive examples weight 1/(S*m_star)"
+    },
+    "bootstrap": {
+      "interval": [
+        2.5,
+        97.5
+      ],
+      "percentile_method": "linear",
+      "replicates": 10000,
+      "seed": 2026100405,
+      "unit": "whole star, same draws for CNN and BLS"
+    },
+    "controls": "one per star; fraction flagged; two-sided 95% Clopper-Pearson interval",
+    "diagnostics": "period/radius cells and paired ranking descriptive; no subgroup threshold fitting",
+    "difference": "CNN minus BLS recovery; paired whole-star bootstrap",
+    "injections": "all release-eligible trials of allocated active test stars; all phases; fixed stored parameters",
+    "preprocessing": "reuse cnn_calibration.data.baseline_arrays; same timestamp-only singleton mask for each control/injection pair; check surviving injected support before scoring",
+    "primary": "light-curve flagging, not period recovery or confirmed planets",
+    "recovery": "mean of per-star fractions of eligible injections flagged; equal star weights",
+    "support_failure": "stop on loss of all injected support; no outcome-dependent exclusions",
+    "uncertainty_scope": "conditional on frozen models and thresholds; not retraining/calibration uncertainty"
+  },
+  "data": {
+    "flux": "SAP_FLUX",
+    "quality_mask": 175,
+    "cadence_seconds": 120,
+    "minimum_support_days": 20,
+    "minimum_span_days": 20,
+    "minimum_crowdsap": 0.9,
+    "exposure_samples": 63,
+    "eligible_minimum_events": 3,
+    "event_coverage_fraction": 0.3333333333333333
+  },
+  "counts": {
+    "train": {
+      "active": 100,
+      "inactive": 100
+    },
+    "validation": {
+      "active": 20,
+      "inactive": 20
+    },
+    "calibration": {
+      "active": 60
+    },
+    "test": {
+      "active": 50
+    }
+  }
+}

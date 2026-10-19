@@ -1,0 +1,202 @@
+[
+  {
+    "source": "cnn_replication/model.py",
+    "source_sha256": "ca1a7197e066a4defa8dcbe1aae4d22817d1c7ff46c13332a336a357beb395b3",
+    "destination": "src/mdwarf_transits/model.py",
+    "functions": "module",
+    "changes": [
+      {
+        "before": "Source: vendor/author/ramjet/models/{hades.py,components/light_curve_network_block.py}.",
+        "after": "Source: RAMjET commit afe6f6cf8f0b96106f3eec48f68a1d7f1f0aefb9."
+      },
+      {
+        "before": "See SOURCE_LEDGER.md and the independent archived-source parity checks.",
+        "after": "See METHODS.md and THIRD_PARTY_NOTICES.md."
+      }
+    ],
+    "destination_sha256": "6f62610455dcc048a0b166a383412eac30a417b0024adb102f091c0eedd5e25b"
+  },
+  {
+    "source": "cnn_replication/preprocessing.py",
+    "source_sha256": "ef7b2b83fdd6e5eca5cea5b09932183936783fa4a46243d5861af6443694bf02",
+    "destination": "src/mdwarf_transits/preprocessing.py",
+    "functions": "module",
+    "changes": [],
+    "destination_sha256": "ef7b2b83fdd6e5eca5cea5b09932183936783fa4a46243d5861af6443694bf02"
+  },
+  {
+    "source": "cnn_final_ordered/preprocessing.py",
+    "source_sha256": "acf42d870a135f21aeab24bc88d2a10dc7ac8229dbeeb32c5249d5572968ca13",
+    "destination": "src/mdwarf_transits/ordered_preprocessing.py",
+    "functions": "module",
+    "changes": [],
+    "destination_sha256": "acf42d870a135f21aeab24bc88d2a10dc7ac8229dbeeb32c5249d5572968ca13"
+  },
+  {
+    "source": "cnn_replication/conversion.py",
+    "source_sha256": "43c3c330f1673b10172fed5f19b8bb4e0255322a81e26d0294dbea0c64b868f1",
+    "destination": "src/mdwarf_transits/binning.py",
+    "functions": [
+      "BinMap",
+      "make_bin_map",
+      "native_support",
+      "audit_injection"
+    ],
+    "changes": [],
+    "destination_sha256": "54f65337491c28f505b183fdacd294537fd3de54f910b127fce157d8d4af8249"
+  },
+  {
+    "source": "training_data/model.py",
+    "source_sha256": "5eca5c638c90d702a8fe259f097f5b489687342baf800e30a43e7283e1d71eea",
+    "destination": "src/mdwarf_transits/injection.py",
+    "functions": [
+      "params",
+      "integrated_model",
+      "inject"
+    ],
+    "changes": [],
+    "destination_sha256": "83ad9aa6c5b5dcea5ec5a055fc0333f7fdcfb921b6e01a20d6babed2dc465663"
+  },
+  {
+    "source": "cnn_cadence/clipping.py",
+    "source_sha256": "79d55155a6317d033dac9012cc19dee0a484bf9f150d78717f4c42a851d36465",
+    "destination": "src/mdwarf_transits/clipping.py",
+    "functions": "module",
+    "changes": [
+      {
+        "before": "from .config import CLIPPING_SETTINGS",
+        "after": "from .settings import CLIPPING_SETTINGS"
+      }
+    ],
+    "destination_sha256": "4e65f1b0c846da16ad5d2f2b0291e41e2a7c49bfa39172bb786ecadbcd541738"
+  },
+  {
+    "source": "cnn_bls/search.py",
+    "source_sha256": "74edf90de8f5cd5af4d71fa616a669091f37b929a20aceb7b5c515988fa5e225",
+    "destination": "src/mdwarf_transits/bls.py",
+    "functions": "module",
+    "changes": [
+      {
+        "before": "from .config import proposal",
+        "after": "from .settings import bls_settings as proposal"
+      }
+    ],
+    "destination_sha256": "6e388fb01656d534f810fe1bf16d01eb60aab7c59220c56f808c9f80727ba3f4"
+  },
+  {
+    "source": "cnn_calibration/data.py",
+    "source_sha256": "f649b45bbfb55b3ea2fd223803c199bc5fa83d04416cc905edbdc8ab29b6db95",
+    "destination": "src/mdwarf_transits/baseline.py",
+    "functions": [
+      "singleton_mask",
+      "baseline_arrays"
+    ],
+    "changes": [
+      {
+        "before": "from cnn_cadence.config import BIWEIGHT_SETTINGS",
+        "after": "from .settings import BIWEIGHT_SETTINGS"
+      },
+      {
+        "before": "from cnn_cadence.clipping import clip_upper",
+        "after": "from .clipping import clip_upper"
+      },
+      {
+        "before": "from cnn_bls.search import grids",
+        "after": "from .bls import grids"
+      }
+    ],
+    "destination_sha256": "e4e974b2540616d3b24d8f920509adab5accf8b7c9eb65ac4aba96a009891d0e"
+  },
+  {
+    "source": "cnn_final_test/data.py",
+    "source_sha256": "e85f3ab453dd315c8d8a6fdf95ffa202a3d524e95acfb6b292d511123b362215",
+    "destination": "src/mdwarf_transits/render.py",
+    "functions": [
+      "array_digest",
+      "render_star"
+    ],
+    "changes": [],
+    "destination_sha256": "52517fb6803d43ee52155d9c5ca6acb20e509d5f26e56dbcd67cc8b209fc674f"
+  },
+  {
+    "source": "cnn_mixed/data.py",
+    "source_sha256": "0a3cb31b93cfa4c4e4e844073d87437bbe17e1f30d4b5a73cc962c00af140d8e",
+    "destination": "src/mdwarf_transits/sampling.py",
+    "functions": [
+      "Sampler"
+    ],
+    "changes": [],
+    "destination_sha256": "42d05a27c71f6a93fc1e47536ddafd76431fc27ded77787b88d4a979cde958c2"
+  },
+  {
+    "source": "cnn_mixed/worker.py",
+    "source_sha256": "ec2b2778add7cdd38471be029d4a62b3d20b05cdb579873a3628a03d1bce791c",
+    "destination": "src/mdwarf_transits/learning.py",
+    "functions": [
+      "configure",
+      "updater",
+      "predict",
+      "array_hash",
+      "save_checkpoint"
+    ],
+    "changes": [],
+    "destination_sha256": "cc08a3efac47fe55a04261dc4bf7e9d410e702ea0d2166cbed9ee617327eaff5"
+  },
+  {
+    "source": "cnn_mixed/analysis.py",
+    "source_sha256": "1dc4049dafc8daf8172334d574f9334d1847fccc3bba65dcc3235bd7e4331a2c",
+    "destination": "src/mdwarf_transits/selection.py",
+    "functions": "module",
+    "changes": [],
+    "destination_sha256": "1dc4049dafc8daf8172334d574f9334d1847fccc3bba65dcc3235bd7e4331a2c"
+  },
+  {
+    "source": "cnn_calibration/statistics.py",
+    "source_sha256": "d2408ad53898c3a78507487c0686e36d700e8058c98a850a3b2c1d8f5103614a",
+    "destination": "src/mdwarf_transits/calibration.py",
+    "functions": [
+      "violation_bound",
+      "rank_threshold"
+    ],
+    "changes": [],
+    "destination_sha256": "807622bbeb7198808b9202e910383973096587be82949b65817e26404addc5d7"
+  },
+  {
+    "source": "cnn_calibration/companions.py",
+    "source_sha256": "aa4ed9a11ce08f4433b56ee081432e8eb3cc7f2adc3dcd51a22b67af65f783f6",
+    "destination": "src/mdwarf_transits/statistics.py",
+    "functions": "module",
+    "changes": [
+      {
+        "before": "ranks = plan['sensitivity']['ranks']",
+        "after": "ranks = []  # Paper's primary operating point only."
+      },
+      {
+        "before": "Secondary AUROC and exploratory alternative cutoffs do not replace the primary operating point; intervals are not simultaneous and condition on frozen models/thresholds.",
+        "after": "AUROC is secondary; intervals condition on frozen models and thresholds and are not simultaneous."
+      }
+    ],
+    "destination_sha256": "d5f9f11e81490d457a25dc1127c0bffaae09ca8dcf853861045094ab39205a50"
+  },
+  {
+    "source": "bls_final_test/analysis.py",
+    "source_sha256": "5eba9bb2a573daffcfaf3e289491f1c4b636a70e2da4f5bb8da5d8402d531727",
+    "destination": "src/mdwarf_transits/analysis.py",
+    "functions": "module",
+    "changes": [
+      {
+        "before": "from cnn_calibration.companions import analyze_scores",
+        "after": "from .statistics import analyze_scores"
+      }
+    ],
+    "destination_sha256": "74c4fe55f6d7a12684b11f3da71152d50444267281dbdeca8689f9603f820291"
+  },
+  {
+    "source": "paper/make_recovery_lines.py",
+    "source_sha256": "59cd3f3ad71b3b0b7433ddbd8b25de53b64bb6ea2b846471be726646140be631",
+    "destination": "src/mdwarf_transits/figure.py",
+    "functions": "plot body",
+    "changes": "Parameterize summary/output paths; preserve paper plotting calculations and styling.",
+    "destination_sha256": "bb1736d56ffcd1c9369672a6c2f475315d2e94f54db6b5e97b4c4cd906ac1f90"
+  }
+]

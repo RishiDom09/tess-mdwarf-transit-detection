@@ -1,0 +1,7 @@
+{
+  "configs/experiment.json": "23f0781a4a5828f2f9ebadb869a24270efa339ea24ab92892df1a8b03b5ea57b",
+  "manifests/stars.csv": "506c5a66365aacb54d708f1b4659fb6646bc5d248f0b3312bfcc738894f76be7",
+  "manifests/trials_test.csv": "c69929a476616e0a2aa80431443f9a282dd42edbf242245e7c20cec103e93539",
+  "manifests/trials_train.csv": "23a332545f7fc98a9bf57aef29208348fb10df5951f096ca535295b0af6fc326",
+  "manifests/trials_validation.csv": "a979dfad849b0c280b7e9479f80b7a3ebf84b2c6e2c584b92ad1a75dae176f1a"
+}
