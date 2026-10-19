@@ -1,4 +1,4 @@
-# A Convolutional Neural Network for Transit Detection around Active M Dwarfs Using TESS Observations
+# Convolutional Neural Network for Transit Detection around Active M Dwarfs in TESS Observations
 
 Code for the research note's CNN training, BLS baseline, calibrated evaluation, and recovery figure.
 
